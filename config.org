@@ -504,6 +504,42 @@ exporting to html sometimes (always?) requires htmlize
 #+END_SRC
 
 
+* Hydra
+
+Hail Hydra!
+
+#+begin_src emacs-lisp
+  (use-package hydra
+    :straight t)
+
+  (defhydra hydra-zoom (global-map "<f2>")
+    "zoom"
+    ("g" text-scale-increase "in")
+    ("l" text-scale-decrease "out"))
+
+
+#+end_src
+
+* Projectile
+Projectile is an awesome project manager, mostly because it recognizes
+directories with a =.git= directory as projects and helps you manage
+them accordingly.
+
+** Enable projectile globally
+This makes sure that everything can be a project.
+#+BEGIN_SRC emacs-lisp
+  (use-package projectile
+    :straight t
+    :init
+    ;;(projectile-mode 1)
+    )
+#+END_SRC
+
+** Let projectile call make
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "<f5>") 'projectile-compile-project)
+#+END_SRC
+
 * Default web browser
 Taken, with thanks, from [[https://github.com/dakrone/eos/blob/master/eos-web.org][dakrone/eos at github]].
 
